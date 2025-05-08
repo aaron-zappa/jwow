@@ -26,5 +26,8 @@
         run-server = "PORT=3000 mvn spring-boot:run";
       };
     };
+    previews = {
+      enable = true;
+    };
   };
 }
