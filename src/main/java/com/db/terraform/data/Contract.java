@@ -6,13 +6,17 @@ public class Contract {
     private int agent_id;
     private String start_date;
     private String end_date;
+    private String created;
+    private String updated;
 
-    public Contract(int contract_id, int customer_id, int agent_id, String start_date, String end_date) {
+    public Contract(int contract_id, int customer_id, int agent_id, String start_date, String end_date, String created, String updated) {
         this.contract_id = contract_id;
         this.customer_id = customer_id;
         this.agent_id = agent_id;
         this.start_date = start_date;
         this.end_date = end_date;
+        this.created = created;
+        this.updated = updated;
     }
 
     public int getContract_id() {
@@ -53,5 +57,21 @@ public class Contract {
 
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(String updated) {
+        this.updated = updated;
     }
 }

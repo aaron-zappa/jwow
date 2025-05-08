@@ -6,13 +6,17 @@ public class Customer {
     private String address;
     private String phone;
     private String email;
+    private String created;
+    private String updated;
 
-    public Customer(int customer_id, String name, String address, String phone, String email) {
+    public Customer(int customer_id, String name, String address, String phone, String email, String created, String updated) {
         this.customer_id = customer_id;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
+        this.created = created;
+        this.updated = updated;
     }
 
     public int getCustomer_id() {
@@ -53,5 +57,21 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(String updated) {
+        this.updated = updated;
     }
 }

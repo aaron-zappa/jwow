@@ -79,6 +79,32 @@
           </additionalClasspathElements>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>run-fillwithdata</id>
+            <phase>validate</phase> <!-- Or a phase that suits your workflow -->
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <echo message="Running FillWithData with Ant"/>
+                <java classname="com.db.terraform.FillWithData" fork="true">
+                  <classpath>
+                    <pathelement location="${project.build.outputDirectory}"/>
+                    <path refid="maven.compile.classpath"/>
+                  </classpath>
+                  <arg value="10"/> <!-- Pass the desired amount as an argument -->
+                </java>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 

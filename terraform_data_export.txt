@@ -13,6 +13,16 @@ id                  lock_id             info                created_at
 --- Data from table: customer ---
 customer_id         name                address             phone               email               
 ----------------------------------------------------------------------------------------------------
+1                   Customer_59ed4f42   1 Test St           555-123-4567        customer_59ed4f42@example.com
+2                   Customer_c1b36200   2 Test St           555-123-4567        customer_c1b36200@example.com
+3                   Customer_f85cf749   3 Test St           555-123-4567        customer_f85cf749@example.com
+4                   Customer_ef6603ce   4 Test St           555-123-4567        customer_ef6603ce@example.com
+5                   Customer_cfa44b89   5 Test St           555-123-4567        customer_cfa44b89@example.com
+6                   Customer_58df1db8   6 Test St           555-123-4567        customer_58df1db8@example.com
+7                   Customer_2510e89e   7 Test St           555-123-4567        customer_2510e89e@example.com
+8                   Customer_35719028   8 Test St           555-123-4567        customer_35719028@example.com
+9                   Customer_628b4b7b   9 Test St           555-123-4567        customer_628b4b7b@example.com
+10                  Customer_8fc3fbb2   10 Test St          555-123-4567        customer_8fc3fbb2@example.com
 
 --- Data from table: agent ---
 agent_id            name                branch              

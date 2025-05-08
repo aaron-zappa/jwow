@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import com.db.terraform.data.Customer;
 import com.db.sqlite.SQLiteConnector;
+import com.db.terraform.utils.Constants;
+
 public class TerraformDbSimulator {
 
     private SQLiteConnector dbConnector;
@@ -35,88 +37,103 @@ public class TerraformDbSimulator {
              Statement stmt = conn.createStatement()) {
 
             // Simulate a simplified 'resources' table
-            String createResourcesTable = "CREATE TABLE IF NOT EXISTS resources (\n" +
-                    "    id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                    "    resource_type TEXT NOT NULL,\n" +
-                    "    resource_name TEXT NOT NULL,\n" +
-                    "    provider TEXT,\n" +
-                    "    state TEXT,\n" +
-                    "    UNIQUE (resource_type, resource_name)\n" +
+            String createResourcesTable = "CREATE TABLE IF NOT EXISTS resources (" + Constants.LINE_BREAK +
+                    "    id INTEGER PRIMARY KEY AUTOINCREMENT," + Constants.LINE_BREAK +
+                    "    resource_type TEXT NOT NULL," + Constants.LINE_BREAK +
+                    "    resource_name TEXT NOT NULL," + Constants.LINE_BREAK +
+                    "    provider TEXT," + Constants.LINE_BREAK +
+                    "    state TEXT," + Constants.LINE_BREAK +
+                    "    created TEXT," + Constants.LINE_BREAK +
+                    "    updated TEXT," + Constants.LINE_BREAK +
+                    "    UNIQUE (resource_type, resource_name)" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createResourcesTable);
             System.out.println("Created 'resources' table.");
 
             // Simulate a simplified 'outputs' table
-            String createOutputsTable = "CREATE TABLE IF NOT EXISTS outputs (\n" +
-                    "    id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                    "    output_name TEXT NOT NULL,\n" +
-                    "    value TEXT,\n" +
-                    "    sensitive INTEGER,\n" + // 0 for false, 1 for true
-                    "    UNIQUE (output_name)\n" +
+            String createOutputsTable = "CREATE TABLE IF NOT EXISTS outputs (" + Constants.LINE_BREAK +
+                    "    id INTEGER PRIMARY KEY AUTOINCREMENT," + Constants.LINE_BREAK +
+                    "    output_name TEXT NOT NULL," + Constants.LINE_BREAK +
+                    "    value TEXT," + Constants.LINE_BREAK +
+                    "    sensitive INTEGER," + Constants.LINE_BREAK + // 0 for false, 1 for true
+                    "    created TEXT," + Constants.LINE_BREAK +
+                    "    updated TEXT," + Constants.LINE_BREAK +
+                    "    UNIQUE (output_name)" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createOutputsTable);
             System.out.println("Created 'outputs' table.");
 
             // Simulate a simplified 'state_lock' table
-            String createStateLockTable = "CREATE TABLE IF NOT EXISTS state_lock (\n" +
-                    "    id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                    "    lock_id TEXT NOT NULL UNIQUE,\n" +
-                    "    info TEXT,\n" +
-                    "    created_at DATETIME DEFAULT CURRENT_TIMESTAMP\n" +
+            String createStateLockTable = "CREATE TABLE IF NOT EXISTS state_lock (" + Constants.LINE_BREAK +
+                    "    id INTEGER PRIMARY KEY AUTOINCREMENT," + Constants.LINE_BREAK +
+                    "    lock_id TEXT NOT NULL UNIQUE," + Constants.LINE_BREAK +
+                    "    info TEXT," + Constants.LINE_BREAK +
+                    "    created_at DATETIME DEFAULT CURRENT_TIMESTAMP," + Constants.LINE_BREAK +
+                    "    updated TEXT" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createStateLockTable);
             System.out.println("Created 'state_lock' table.");
 
             // Create customer table
-            String createCustomerTable = "CREATE TABLE IF NOT EXISTS customer (\n" +
-                    "    customer_id INTEGER PRIMARY KEY,\n" +
-                    "    name TEXT,\n" +
-                    "    address TEXT,\n" +
-                    "    phone TEXT,\n" +
-                    "    email TEXT\n" +
+            String createCustomerTable = "CREATE TABLE IF NOT EXISTS customer (" + Constants.LINE_BREAK +
+                    "    customer_id INTEGER PRIMARY KEY," + Constants.LINE_BREAK +
+                    "    name TEXT," + Constants.LINE_BREAK +
+                    "    address TEXT," + Constants.LINE_BREAK +
+                    "    phone TEXT," + Constants.LINE_BREAK +
+                    "    email TEXT," + Constants.LINE_BREAK +
+                    "    created TEXT," + Constants.LINE_BREAK +
+                    "    updated TEXT" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createCustomerTable);
             System.out.println("Created 'customer' table.");
 
             // Create agent table
-            String createAgentTable = "CREATE TABLE IF NOT EXISTS agent (\n" +
-                    "    agent_id INTEGER PRIMARY KEY,\n" +
-                    "    name TEXT,\n" +
-                    "    branch TEXT\n" +
+            String createAgentTable = "CREATE TABLE IF NOT EXISTS agent (" + Constants.LINE_BREAK +
+                    "    agent_id INTEGER PRIMARY KEY," + Constants.LINE_BREAK +
+                    "    name TEXT," + Constants.LINE_BREAK +
+                    "    branch TEXT," + Constants.LINE_BREAK +
+                    "    created TEXT," + Constants.LINE_BREAK +
+                    "    updated TEXT" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createAgentTable);
             System.out.println("Created 'agent' table.");
 
             // Create product table
-            String createProductTable = "CREATE TABLE IF NOT EXISTS product (\n" +
-                    "    product_id INTEGER PRIMARY KEY,\n" +
-                    "    name TEXT,\n" +
-                    "    type TEXT,\n" +
-                    "    price REAL\n" +
+            String createProductTable = "CREATE TABLE IF NOT EXISTS product (" + Constants.LINE_BREAK +
+                    "    product_id INTEGER PRIMARY KEY," + Constants.LINE_BREAK +
+                    "    name TEXT," + Constants.LINE_BREAK +
+                    "    type TEXT," + Constants.LINE_BREAK +
+                    "    price REAL," + Constants.LINE_BREAK +
+                    "    created TEXT," + Constants.LINE_BREAK +
+                    "    updated TEXT" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createProductTable);
             System.out.println("Created 'product' table.");
 
             // Create contract table
-            String createContractTable = "CREATE TABLE IF NOT EXISTS contract (\n" +
-                    "    contract_id INTEGER PRIMARY KEY,\n" +
-                    "    customer_id INTEGER,\n" +
-                    "    agent_id INTEGER,\n" +
-                    "    start_date TEXT,\n" +
-                    "    end_date TEXT,\n" +
-                    "    FOREIGN KEY (customer_id) REFERENCES customer(customer_id),\n" +
-                    "    FOREIGN KEY (agent_id) REFERENCES agent(agent_id)\n" +
+            String createContractTable = "CREATE TABLE IF NOT EXISTS contract (" + Constants.LINE_BREAK +
+                    "    contract_id INTEGER PRIMARY KEY," + Constants.LINE_BREAK +
+                    "    customer_id INTEGER," + Constants.LINE_BREAK +
+                    "    agent_id INTEGER," + Constants.LINE_BREAK +
+                    "    start_date TEXT," + Constants.LINE_BREAK +
+                    "    end_date TEXT," + Constants.LINE_BREAK +
+                    "    created TEXT," + Constants.LINE_BREAK +
+                    "    updated TEXT," + Constants.LINE_BREAK +
+                    "    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)," + Constants.LINE_BREAK +
+                    "    FOREIGN KEY (agent_id) REFERENCES agent(agent_id)" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createContractTable);
             System.out.println("Created 'contract' table.");
 
             // Create order table
-            String createOrderTable = "CREATE TABLE IF NOT EXISTS \"order\" (\n" +
-                    "    order_id INTEGER PRIMARY KEY,\n" +
-                    "    customer_id INTEGER,\n" +
-                    "    order_date TEXT,\n" +
-                    "    total_amount REAL,\n" +
-                    "    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)\n" +
+            String createOrderTable = "CREATE TABLE IF NOT EXISTS "order" (" + Constants.LINE_BREAK +
+                    "    order_id INTEGER PRIMARY KEY," + Constants.LINE_BREAK +
+                    "    customer_id INTEGER," + Constants.LINE_BREAK +
+                    "    order_date TEXT," + Constants.LINE_BREAK +
+                    "    total_amount REAL," + Constants.LINE_BREAK +
+                    "    created TEXT," + Constants.LINE_BREAK +
+                    "    updated TEXT," + Constants.LINE_BREAK +
+                    "    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)" + Constants.LINE_BREAK +
                     ");";
             stmt.execute(createOrderTable);
             System.out.println("Created 'order' table.");
