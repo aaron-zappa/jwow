@@ -15,11 +15,13 @@ public class GeminiAccess {
     public static String askGemini(String project, String location, String endpointId, String prompt) {
         try {
 
-            // Use Application Default Credentials
-            PredictionServiceSettings predictionServiceSettings =
- PredictionServiceSettings.newBuilder()
- .setEndpoint(String.format("%s-aiplatform.googleapis.com:443", location))
- .build();
+            // Set the endpoint address
+            String apiEndpoint = String.format("%s-aiplatform.googleapis.com:443", location);
+
+            PredictionServiceSettings.Builder predictionServiceSettingsBuilder =
+                    PredictionServiceSettings.newBuilder()
+                            .setEndpoint(apiEndpoint);
+            PredictionServiceSettings predictionServiceSettings = predictionServiceSettingsBuilder.build();
 
             try (PredictionServiceClient predictionServiceClient =
                          PredictionServiceClient.create(predictionServiceSettings)) {
@@ -68,9 +70,9 @@ public class GeminiAccess {
     }
 
     public static void main(String[] args) {
-        String project = "steady-bison-413120";
-        String location = "us-central1";
-        String endpointId = "YOUR_ENDPOINT_ID"; // Replace with your actual endpoint ID
+        String project = "192261268349"; 
+        String location = "europe-west3";
+        String endpointId = "4156941203318767616"; // Replace with your actual endpoint ID. You need to have a model deployed with the gemini-2.0-flash model, and use the id of that endpoint.
         String prompt = "Write a short poem about nature.";
         String response = askGemini(project, location, endpointId, prompt);
         System.out.println(response);

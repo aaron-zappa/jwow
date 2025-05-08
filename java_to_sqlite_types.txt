@@ -1,0 +1,11 @@
+Java Type | Corresponding SQLite Type (Common)
+------------------------------------------
+int       | INTEGER
+double    | REAL
+boolean   | INTEGER (often stored as 0 for false, 1 for true)
+String    | TEXT
+long      | INTEGER
+float     | REAL
+char      | TEXT (single character string)
+byte      | BLOB or INTEGER (depending on use)
+short     | INTEGER

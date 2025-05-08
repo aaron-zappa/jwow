@@ -1,0 +1,32 @@
+--- Data from table: resources ---
+id                  resource_type       resource_name       provider            state               
+----------------------------------------------------------------------------------------------------
+
+--- Data from table: outputs ---
+id                  output_name         value               sensitive           
+--------------------------------------------------------------------------------
+
+--- Data from table: state_lock ---
+id                  lock_id             info                created_at          
+--------------------------------------------------------------------------------
+
+--- Data from table: customer ---
+customer_id         name                address             phone               email               
+----------------------------------------------------------------------------------------------------
+
+--- Data from table: agent ---
+agent_id            name                branch              
+------------------------------------------------------------
+
+--- Data from table: product ---
+product_id          name                type                price               
+--------------------------------------------------------------------------------
+
+--- Data from table: contract ---
+contract_id         customer_id         agent_id            start_date          end_date            
+----------------------------------------------------------------------------------------------------
+
+--- Data from table: "order" ---
+order_id            customer_id         order_date          total_amount        
+--------------------------------------------------------------------------------
+
