@@ -1,33 +1,41 @@
-# To learn more about how to use Nix to configure your environment
-# see: https://firebase.google.com/docs/studio/customize-workspace
 { pkgs, ... }: {
-  # Which nixpkgs channel to use.
-  channel = "stable-23.11"; # or "unstable"
-  # Use https://search.nixos.org/packages to find packages
+  channel = "stable-23.11";
   packages = [
     pkgs.zulu17
     pkgs.maven
   ];
-  # Sets environment variables in the workspace
-  env = {};
+  env = { };
   idx = {
-    # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       "vscjava.vscode-java-pack"
       "rangav.vscode-thunder-client"
     ];
     workspace = {
-      # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
         install = "mvn clean install";
       };
-      # Runs when a workspace is (re)started
       onStart = {
         run-server = "PORT=3000 mvn spring-boot:run";
       };
     };
     previews = {
       enable = true;
+      previews = {
+        html = {
+          command = [
+            "java"
+            "-m"
+            "jdk.httpserver"
+            "--directory"
+            "."
+            "--port"
+            "$PORT"
+          ];
+          manager = "web";
+          # Optionally, specify a directory if your HTML is not in root:
+          # cwd = "public";
+        };
+      };
     };
   };
 }

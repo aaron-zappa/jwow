@@ -1,11 +1,17 @@
-Java Type | Corresponding SQLite Type (Common)
-------------------------------------------
-int       | INTEGER
-double    | REAL
-boolean   | INTEGER (often stored as 0 for false, 1 for true)
-String    | TEXT
-long      | INTEGER
-float     | REAL
-char      | TEXT (single character string)
-byte      | BLOB or INTEGER (depending on use)
-short     | INTEGER
+Terraform Data Type | Java Data Type | SQLite Data Type
+--------------------|----------------|-------------------
+String              | String         | TEXT
+Number              | int            | INTEGER
+Number              | double         | REAL
+Boolean             | boolean        | INTEGER (0 for false, 1 for true)
+String              | String         | TEXT
+String              | String         | TEXT (for dates/timestamps like created/updated)
+Number              | long           | INTEGER
+Number              | float          | REAL
+String              | char           | TEXT (single character)
+Number/String/Boolean?| byte           | BLOB or INTEGER
+Number              | short          | INTEGER
+
+Date Handling in Terraform:
+
+While the Java simulation in this project represents date-related fields as Strings for simplicity, the Terraform language itself handles dates and times in a more structured way. Proper handling of dates in Terraform often involves using built-in functions (like timestamp(), timeadd(), formatdate()) and resource-specific attributes that are designed to work with time values, rather than just treating them as simple strings. These functions and attributes ensure that dates are correctly processed and interpreted within the Terraform workflow and by the target resources.
