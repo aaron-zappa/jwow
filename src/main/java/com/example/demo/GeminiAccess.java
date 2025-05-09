@@ -1,3 +1,5 @@
+package com.example.demo;
+
 import com.google.cloud.aiplatform.v1.EndpointName;
 import com.google.cloud.aiplatform.v1.PredictResponse;
 import com.google.cloud.aiplatform.v1.PredictionServiceClient;
@@ -56,7 +58,8 @@ public class GeminiAccess implements CommandLineRunner {
                         }
                     }
                 }
-        } catch (InvalidProtocolBufferException e) {
+        } catch (Exception e) {
+            // This exception can be thrown by the predictionServiceClient.predict() method
  System.err.println("Error: " + e.getMessage());
  e.printStackTrace();
  }

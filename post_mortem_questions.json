@@ -1,0 +1,98 @@
+[
+  {
+    "section": "Incident Details",
+    "questions": [
+      {"question": "What was the title of the incident?"},
+      {"question": "What was the date and time of the incident?"},
+      {"question": "What was a brief description of the incident?"},
+      {"question": "Who were the key stakeholders involved?"}
+    ]
+  },
+  {
+    "section": "Timeline of Events",
+    "description": "Provide a chronological list of key events that occurred.",
+    "questions": [
+      {
+        "question": "For each event, what was the timestamp?",
+        "type": "list_of_objects",
+        "nested_questions": [
+          {"question": "What was the description of this event?"},
+          {"question": "Who was involved in this event?"},
+          {"question": "What was the impact at this point?"}
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Impact Assessment",
+    "description": "Assess the impact of the incident.",
+    "questions": [
+      {"question": "What was the primary impact on users or systems?"},
+      {"question": "What was the estimated financial impact (if applicable)?"},
+      {"question": "Were there any other significant impacts (e.g., reputational)?"}
+    ]
+  },
+  {
+    "section": "Root Cause Analysis",
+    "description": "Identify the underlying causes of the incident.",
+    "questions": [
+      {
+        "question": "What were the contributing factors?",
+        "type": "list_of_strings"
+      },
+      {
+        "question": "What was the technical root cause?",
+        "type": "list_of_strings"
+      },
+      {
+        "question": "What were the process-related root causes?",
+        "type": "list_of_strings"
+      },
+      {
+        "question": "What were the human-related root causes?",
+        "type": "list_of_strings"
+      }
+    ]
+  },
+  {
+    "section": "Lessons Learned",
+    "description": "Document key takeaways from the incident.",
+    "questions": [
+      {
+        "question": "What went well?",
+        "type": "list_of_strings"
+      },
+      {
+        "question": "What could have gone better?",
+        "type": "list_of_strings"
+      },
+      {
+        "question": "What specific lessons were learned regarding technology?",
+        "type": "list_of_strings"
+      },
+      {
+        "question": "What specific lessons were learned regarding processes?",
+        "type": "list_of_strings"
+      },
+      {
+        "question": "What specific lessons were learned regarding team collaboration and communication?",
+        "type": "list_of_strings"
+      }
+    ]
+  },
+  {
+    "section": "Action Items",
+    "description": "Define concrete steps to prevent recurrence and improve processes.",
+    "questions": [
+      {
+        "question": "For each action item, what is the description?",
+        "type": "list_of_objects",
+        "nested_questions": [
+          {"question": "Who is the owner of this action item?"},
+          {"question": "What is the target completion date?"},
+          {"question": "What is the status of this action item?"}
+        ]
+      }
+    ]
+  }
+]

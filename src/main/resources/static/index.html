@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Call Hello World</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  #response {
+    margin-top: 20px;
+  }
+</style>
+<style>
+  #callButton {
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+  <label for="options">Select an option:</label>
+  <select id="options" name="options">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+  </select>
+  
+<img id="callButton" src="button_image.png" alt="Call Hello World Button">
+<p id="response"></p>
+
+<script>
+  document.getElementById("callButton").addEventListener("click", function() {
+    fetch('/callHelloWorld')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("response").innerText = data;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        document.getElementById("response").innerText = 'Error calling Hello World';
+      });
+  });
+</script>
+
+</body>
+</html>

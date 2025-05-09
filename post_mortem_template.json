@@ -1,0 +1,71 @@
+{
+  "post_mortem_analysis": {
+    "incident_details": {
+      "title": "[Incident Title]",
+      "date_time": "[Date and Time of Incident]",
+      "duration": "[Duration of Incident]",
+      "service_affected": "[Service(s) Affected]",
+      "description": "[Brief Description of the Incident]",
+      "detection_method": "[How the Incident was Detected]",
+      "reported_by": "[Who Reported the Incident]"
+    },
+    "timeline_of_events": [
+      {
+        "timestamp": "[Timestamp]",
+        "event": "[Description of Event]",
+        "stakeholder": "[Stakeholder Involved]",
+        "action_taken": "[Action Taken (if any)]"
+      },
+      {
+        "timestamp": "[Timestamp]",
+        "event": "[Description of Event]",
+        "stakeholder": "[Stakeholder Involved]",
+        "action_taken": "[Action Taken (if any)]"
+      }
+    ],
+    "impact_assessment": {
+      "business_impact": "[Description of Business Impact (e.g., revenue loss, customer churn)]",
+      "technical_impact": "[Description of Technical Impact (e.g., data loss, system downtime)]",
+      "customer_impact": "[Description of Customer Impact (e.g., inability to access service, negative experience)]",
+      "metrics_affected": "[List of Affected Metrics and their Change]"
+    },
+    "root_cause_analysis": [
+      {
+        "cause_type": "[e.g., Technical, Process, Human Error]",
+        "description": "[Detailed Description of the Root Cause]",
+        "evidence": "[Supporting Evidence or Data]"
+      },
+      {
+        "cause_type": "[e.g., Technical, Process, Human Error]",
+        "description": "[Detailed Description of the Root Cause]",
+        "evidence": "[Supporting Evidence or Data]"
+      }
+    ],
+    "lessons_learned": [
+      {
+        "category": "[e.g., Communication, Monitoring, Process, Technical]",
+        "finding": "[Specific Lesson Learned]",
+        "recommendation": "[Recommendation based on Lesson Learned]"
+      },
+      {
+        "category": "[e.g., Communication, Monitoring, Process, Technical]",
+        "finding": "[Specific Lesson Learned]",
+        "recommendation": "[Recommendation based on Lesson Learned]"
+      }
+    ],
+    "action_items": [
+      {
+        "action": "[Specific Action Item]",
+        "assigned_to": "[Person or Team Responsible]",
+        "due_date": "[Target Completion Date]",
+        "status": "[Status (e.g., Open, In Progress, Completed)]"
+      },
+      {
+        "action": "[Specific Action Item]",
+        "assigned_to": "[Person or Team Responsible]",
+        "due_date": "[Target Completion Date]",
+        "status": "[Status (e.g., Open, In Progress, Completed)]"
+      }
+    ]
+  }
+}

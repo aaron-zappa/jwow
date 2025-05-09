@@ -23,11 +23,6 @@
  <version>3.1.0</version>
  </dependency>
     <dependency>
- <groupId>com.google.cloud</groupId>
- <artifactId>google-cloud-core</artifactId>
- <version>2.23.0</version>
- </dependency>
-    <dependency>
  <groupId>com.google.api.grpc</groupId>
  <artifactId>grpc-google-common-protos</artifactId>
  <version>2.23.0</version>
@@ -48,10 +43,25 @@
  <version>1.21.0</version>
  </dependency>
     <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+ </dependency>
+    <dependency>
       <groupId>org.xerial</groupId>
       <artifactId>sqlite-jdbc</artifactId>
       <version>3.36.0.3</version>
     </dependency>
+ <dependency>
+ <groupId>org.apache.httpcomponents</groupId>
+ <artifactId>httpclient</artifactId>
+ <version>4.5.13</version> <!-- Use the latest version -->
+ </dependency>
+ <dependency>
+ <groupId>org.jsoup</groupId>
+ <artifactId>jsoup</artifactId>
+ <version>1.15.3</version> <!-- Use the latest version -->
+ </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -70,8 +80,24 @@
     </dependency>
   </dependencies>
 
+  <repositories>
+    <repository>
+      <id>google-maven-central</id>
+      <url>https://maven.google.com/</url>
+    </repository>
+  </repositories>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <excludes>
+            <exclude>com/example/demo/CheckProjectExistence.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -80,56 +106,9 @@
  </configuration>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.5.0</version>
-        <executions>
-          <execution>
-            <id>run-gemini-access</id>
-            <phase>package</phase> <!-- Or a phase that suits your workflow -->
-            <goals>
-              <goal>java</goal>
-            </goals>
-        <configuration>
- <mainClass>com.example.demo.GeminiAccess</mainClass>
- <classpath>
- <classpathScope>runtime</classpathScope>
- <additionalClasspathElements>
- <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
- </additionalClasspathElements>
- <dependencyElements>
- <includeScope>runtime</includeScope>
- </dependencyElements>
- </classpath>
-        </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <id>run-fillwithdata</id>
-            <phase>validate</phase> <!-- Or a phase that suits your workflow -->
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <target>
-                <echo message="Running FillWithData with Ant"/>
-                <java classname="com.db.terraform.FillWithData" fork="true">
-                  <classpath>
-                    <pathelement location="${project.build.outputDirectory}"/>
-                    <path refid="maven.compile.classpath"/>
-                  </classpath>
-                  <arg value="10"/> <!-- Pass the desired amount as an argument -->
-                </java>
-              </target>
-            </configuration>
-          </execution>
-        </executions>
+ <groupId>org.codehaus.mojo</groupId>
+ <artifactId>exec-maven-plugin</artifactId>
+ <version>3.5.0</version>
       </plugin>
     </plugins>
   </build>

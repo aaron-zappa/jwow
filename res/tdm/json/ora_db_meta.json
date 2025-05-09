@@ -1,0 +1,236 @@
+[
+
+    "is_common": true
+  },
+  {
+    "datatype": "NVARCHAR2",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "NUMBER",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "FLOAT",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "BINARY_FLOAT",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "BINARY_DOUBLE",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "LONG",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "DATE",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "TIMESTAMP",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "TIMESTAMP WITH TIME ZONE",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "TIMESTAMP WITH LOCAL TIME ZONE",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "INTERVAL YEAR TO MONTH",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "INTERVAL DAY TO SECOND",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "BFILE",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "BLOB",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "CLOB",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "NCLOB",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "XMLTYPE",
+    "comment": "",
+    "is_common": true
+  },
+  {
+    "datatype": "ROWID",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "UROWID",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "ANYDATA",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "ANYDATASET",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "ANYTYPE",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "SDO_GEOMETRY",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "SDO_TOPO_GEOMETRY",
+    "comment": "",
+    "is_common": false
+  },
+  {
+    "datatype": "SDO_RASTER",
+    "comment": "",
+    "is_common": false
+  }
+]
+
+  {
+    "datatype": "VARCHAR2",
+    "comment": ""
+  },
+  {
+    "datatype": "NVARCHAR2",
+    "comment": ""
+  },
+  {
+    "datatype": "NUMBER",
+    "comment": ""
+  },
+  {
+    "datatype": "FLOAT",
+    "comment": ""
+  },
+  {
+    "datatype": "BINARY_FLOAT",
+    "comment": ""
+  },
+  {
+    "datatype": "BINARY_DOUBLE",
+    "comment": ""
+  },
+  {
+    "datatype": "LONG",
+    "comment": ""
+  },
+  {
+    "datatype": "DATE",
+    "comment": ""
+  },
+  {
+    "datatype": "TIMESTAMP",
+    "comment": ""
+  },
+  {
+    "datatype": "TIMESTAMP WITH TIME ZONE",
+    "comment": ""
+  },
+  {
+    "datatype": "TIMESTAMP WITH LOCAL TIME ZONE",
+    "comment": ""
+  },
+  {
+    "datatype": "INTERVAL YEAR TO MONTH",
+    "comment": ""
+  },
+  {
+    "datatype": "INTERVAL DAY TO SECOND",
+    "comment": ""
+  },
+  {
+    "datatype": "BFILE",
+    "comment": ""
+  },
+  {
+    "datatype": "BLOB",
+    "comment": ""
+  },
+  {
+    "datatype": "CLOB",
+    "comment": ""
+  },
+  {
+    "datatype": "NCLOB",
+    "comment": ""
+  },
+  {
+    "datatype": "XMLTYPE",
+    "comment": ""
+  },
+  {
+    "datatype": "ROWID",
+    "comment": ""
+  },
+  {
+    "datatype": "UROWID",
+    "comment": ""
+  },
+  {
+    "datatype": "ANYDATA",
+    "comment": ""
+  },
+  {
+    "datatype": "ANYDATASET",
+    "comment": ""
+  },
+  {
+    "datatype": "ANYTYPE",
+    "comment": ""
+  },
+  {
+    "datatype": "SDO_GEOMETRY",
+    "comment": ""
+  },
+  {
+    "datatype": "SDO_TOPO_GEOMETRY",
+    "comment": ""
+  },
+  {
+    "datatype": "SDO_RASTER",
+    "comment": ""
+  }
+]
