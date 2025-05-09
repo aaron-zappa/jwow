@@ -13,5 +13,11 @@ Number/String/Boolean?| byte           | BLOB or INTEGER
 Number              | short          | INTEGER
 
 Date Handling in Terraform:
-
-While the Java simulation in this project represents date-related fields as Strings for simplicity, the Terraform language itself handles dates and times in a more structured way. Proper handling of dates in Terraform often involves using built-in functions (like timestamp(), timeadd(), formatdate()) and resource-specific attributes that are designed to work with time values, rather than just treating them as simple strings. These functions and attributes ensure that dates are correctly processed and interpreted within the Terraform workflow and by the target resources.
+This project's Java simulation uses Strings for dates.
+Terraform language handles dates more structured.
+It doesn't treat them as simple strings.
+Proper handling uses built-in functions.
+Examples: timestamp(), timeadd(), formatdate().
+Resource attributes also handle time values.
+This ensures correct processing of dates.
+It works within Terraform workflow and by resources.

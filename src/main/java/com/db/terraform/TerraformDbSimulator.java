@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import com.db.terraform.data.Customer;
 import com.db.sqlite.SQLiteConnector;
+import java.time.LocalDateTime;
 import com.db.terraform.utils.Constants;
 
 public class TerraformDbSimulator {
@@ -126,7 +127,7 @@ public class TerraformDbSimulator {
             System.out.println("Created 'contract' table.");
 
             // Create order table
-            String createOrderTable = "CREATE TABLE IF NOT EXISTS "order" (" + Constants.LINE_BREAK +
+            String createOrderTable = "CREATE TABLE IF NOT EXISTS order (" + Constants.LINE_BREAK +
                     "    order_id INTEGER PRIMARY KEY," + Constants.LINE_BREAK +
                     "    customer_id INTEGER," + Constants.LINE_BREAK +
                     "    order_date TEXT," + Constants.LINE_BREAK +
@@ -169,8 +170,10 @@ public class TerraformDbSimulator {
 
             for (int i = 0; i < 30; i++) {
                 Customer customer = new Customer(i + 1, names[i], addresses[i],
-                                                 String.format("555-01%02d", i),
-                                                 names[i].toLowerCase().replace(" ", ".") + "@example.com");
+ String.format("555-01%02d", i),
+ names[i].toLowerCase().replace(" ", ".") + "@example.com",
+ LocalDateTime.now().toString(),
+ LocalDateTime.now().toString());
                 String insertSql = String.format("INSERT INTO customer (customer_id, name, address, phone, email) VALUES (%d, '%s', '%s', '%s', '%s');",
                                                  customer.getCustomer_id(), customer.getName(), customer.getAddress(), customer.getPhone(), customer.getEmail());
                 stmt.executeUpdate(insertSql);

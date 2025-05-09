@@ -20,7 +20,17 @@
     <dependency>
  <groupId>com.google.cloud</groupId>
  <artifactId>google-cloud-aiplatform</artifactId>
- <version>3.17.0</version>
+ <version>3.1.0</version>
+ </dependency>
+    <dependency>
+ <groupId>com.google.cloud</groupId>
+ <artifactId>google-cloud-core</artifactId>
+ <version>2.23.0</version>
+ </dependency>
+    <dependency>
+ <groupId>com.google.api.grpc</groupId>
+ <artifactId>grpc-google-common-protos</artifactId>
+ <version>2.23.0</version>
  </dependency>
  <dependency>
  <groupId>com.google.protobuf</groupId>
@@ -65,19 +75,35 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+ <configuration>
+ <mainClass>com.example.demo.GeminiAccess</mainClass>
+ </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.5.0</version>
+        <executions>
+          <execution>
+            <id>run-gemini-access</id>
+            <phase>package</phase> <!-- Or a phase that suits your workflow -->
+            <goals>
+              <goal>java</goal>
+            </goals>
         <configuration>
-          <mainClass>${exec.mainClass}</mainClass>
-          <classpathScope>compile</classpathScope>
-          <addClasses>true</addClasses>
-          <additionalClasspathElements>
-            <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
-          </additionalClasspathElements>
+ <mainClass>com.example.demo.GeminiAccess</mainClass>
+ <classpath>
+ <classpathScope>runtime</classpathScope>
+ <additionalClasspathElements>
+ <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
+ </additionalClasspathElements>
+ <dependencyElements>
+ <includeScope>runtime</includeScope>
+ </dependencyElements>
+ </classpath>
         </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

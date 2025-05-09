@@ -1,0 +1,44 @@
+{
+  "agents": [
+    {
+      "agentId": 1,
+      "name": "Agent Smith",
+      "branch": "Main"
+    },
+    {
+      "agentId": 2,
+      "name": "Agent Brown",
+      "branch": "Downtown"
+    }
+  ],
+  "customers": [
+    {
+      "customer_id": 101,
+      "name": "Alice Johnson",
+      "address": "123 Oak St",
+      "phone": "555-1234",
+      "email": "alice@example.com"
+    },
+    {
+      "customer_id": 102,
+      "name": "Bob Williams",
+      "address": "456 Pine Ave",
+      "phone": "555-5678",
+      "email": "bob@example.com"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": 1001,
+      "customer_id": 101,
+      "order_date": "2023-10-26",
+      "total_amount": 150.75
+    },
+    {
+      "order_id": 1002,
+      "customer_id": 102,
+      "order_date": "2023-10-26",
+      "total_amount": 220.00
+    }
+  ]
+}

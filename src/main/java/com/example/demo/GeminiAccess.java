@@ -3,29 +3,26 @@ import com.google.cloud.aiplatform.v1.PredictResponse;
 import com.google.cloud.aiplatform.v1.PredictionServiceClient;
 import com.google.cloud.aiplatform.v1.PredictionServiceSettings;
 import com.google.auth.oauth2.GoogleCredentials;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Struct;
 import com.google.protobuf.Value;
 import java.util.List;
-import java.util.Map;
-import java.io.IOException;
 
-public class GeminiAccess {
-    public static String askGemini(String project, String location, String endpointId, String prompt) {
+@Component
+public class GeminiAccess implements CommandLineRunner {
+    private final PredictionServiceClient predictionServiceClient;
+
+    public GeminiAccess(PredictionServiceClient predictionServiceClient) {
+        this.predictionServiceClient = predictionServiceClient;
+    }
+
+    public String askGemini(String project, String location, String endpointId, String prompt) {
         try {
-
-            // Set the endpoint address
-            String apiEndpoint = String.format("%s-aiplatform.googleapis.com:443", location);
-
-            PredictionServiceSettings.Builder predictionServiceSettingsBuilder =
-                    PredictionServiceSettings.newBuilder()
-                            .setEndpoint(apiEndpoint);
-            PredictionServiceSettings predictionServiceSettings = predictionServiceSettingsBuilder.build();
-
-            try (PredictionServiceClient predictionServiceClient =
-                         PredictionServiceClient.create(predictionServiceSettings)) {
-
                 // Configure the Endpoint Name
                 String endpoint = String.format(
                         "projects/%s/locations/%s/endpoints/%s", project, location, endpointId);
@@ -59,22 +56,25 @@ public class GeminiAccess {
                         }
                     }
                 }
-            } catch (InvalidProtocolBufferException e) {
-                System.err.println("Error: " + e.getMessage());
-                e.printStackTrace();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Error";
+        } catch (InvalidProtocolBufferException e) {
+ System.err.println("Error: " + e.getMessage());
+ e.printStackTrace();
+ }
+ return "Error";
     }
 
+ @Override
+ public void run(String... args) throws Exception {
+ String project = "192261268349";
+ String location = "europe-west3";
+ String endpointId = "4156941203318767616"; // Replace with your actual endpoint ID. You need to have a model deployed with the gemini-2.0-flash model, and use the id of that endpoint.
+
+ String prompt = "Write a short poem about nature.";
+ String response = askGemini(project, location, endpointId, prompt);
+ System.out.println(response);
+ }
+
     public static void main(String[] args) {
-        String project = "192261268349"; 
-        String location = "europe-west3";
-        String endpointId = "4156941203318767616"; // Replace with your actual endpoint ID. You need to have a model deployed with the gemini-2.0-flash model, and use the id of that endpoint.
-        String prompt = "Write a short poem about nature.";
-        String response = askGemini(project, location, endpointId, prompt);
-        System.out.println(response);
+        SpringApplication.run(GeminiAccess.class, args);
     }
 }
